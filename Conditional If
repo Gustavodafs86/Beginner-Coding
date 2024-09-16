@@ -1,0 +1,23 @@
+#Resolvendo problema de cálculo do valor de combustível a ser pago pelo motorista, aplicando descontos de acordo com a quantidade de litros.#
+
+E_preco = 1.70
+D_preco = 2.00
+tipo_combustivel = input('Tipo de combustível (D - Diesel, E - Etanol)')
+quant_litros = float(input('Quantidade de litros:'))
+
+E_desconto_1 = E_preco * 0.02 * quant_litros
+E_desconto_2 = E_preco * 0.04 * quant_litros
+D_desconto_1 = D_preco * 0.03 * quant_litros
+D_desconto_2 = D_preco * 0.05 * quant_litros
+
+if tipo_combustivel == 'E' and quant_litros <= 15:
+  preco_final = (E_preco * quant_litros) - E_desconto_1
+elif tipo_combustivel == 'E' and quant_litros >15:
+  preco_final = (E_preco *quant_litros) - E_desconto_2
+
+if tipo_combustivel == 'D' and quant_litros <= 15:
+  preco_final = (D_preco * quant_litros) - D_desconto_1
+elif tipo_combustivel == 'D' and quant_litros > 15:
+  preco_final = (D_preco * quant_litros) - D_desconto_2
+  
+print(f'O valor do abastecimento foi de: R${preco_final}')
